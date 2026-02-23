@@ -1,0 +1,150 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
+scroll-behavior: smooth;
+}
+
+body {
+--bg: #f7f7f7;
+--text: #111;
+--card: #ffffff;
+--nav: #111;
+--btn: #111;
+
+background: var(--bg);
+color: var(--text);
+transition: 0.4s;
+overflow-x: hidden;
+}
+
+body.dark {
+--bg: #0f172a;
+--text: #f1f5f9;
+--card: #1e293b;
+--nav: #020617;
+--btn: #334155;
+}
+
+#particles-js {
+position: fixed;
+width: 100%;
+height: 100%;
+z-index: -1;
+}
+
+nav {
+background: var(--nav);
+color: white;
+padding: 15px 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+nav ul {
+display: flex;
+list-style: none;
+}
+
+nav ul li {
+margin-left: 20px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+}
+
+header {
+text-align: center;
+padding: 100px 20px;
+}
+
+header h2 {
+font-size: 40px;
+margin-bottom: 15px;
+}
+
+header p {
+font-size: 20px;
+height: 30px;
+}
+
+section {
+padding: 60px 20px;
+max-width: 900px;
+margin: auto;
+}
+
+.project-card {
+background: var(--card);
+padding: 20px;
+margin-top: 20px;
+border-radius: 12px;
+transition: 0.3s;
+}
+
+.project-card:hover {
+transform: translateY(-5px);
+}
+
+.skill {
+margin-top: 20px;
+}
+
+.progress {
+background: #ccc;
+height: 8px;
+border-radius: 5px;
+overflow: hidden;
+}
+
+.progress-bar {
+height: 100%;
+width: 0;
+background: linear-gradient(90deg, #6366f1, #8b5cf6);
+transition: width 1.5s ease;
+}
+
+form {
+display: flex;
+flex-direction: column;
+margin-top: 20px;
+}
+
+input, textarea {
+margin-bottom: 15px;
+padding: 12px;
+border-radius: 8px;
+border: none;
+}
+
+.btn {
+background: var(--btn);
+color: white;
+padding: 10px 20px;
+border-radius: 8px;
+text-decoration: none;
+border: none;
+cursor: pointer;
+}
+
+footer {
+text-align: center;
+padding: 20px;
+background: var(--nav);
+color: white;
+margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+nav ul {
+display: none;
+}
+
+header {
+padding: 70px 20px;
+}
+}
