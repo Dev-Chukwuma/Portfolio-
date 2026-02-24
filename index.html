@@ -92,6 +92,17 @@
   body.light .marquee-bg {
     color: rgba(0,0,0,0.05);
   }
+  .skill-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+  filter: invert(90%); /* makes it visible on dark mode */
+}
+
+body.light .skill-icon {
+  filter: invert(10%); /* adjusts color for light mode */
+}
 </style>
 </head>
 <body>
