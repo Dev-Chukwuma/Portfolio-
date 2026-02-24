@@ -1,138 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chukwuma Divine | Software Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chukwuma Divine | Developer</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f172a;
+  --text: #ffffff;
+  --card: #1e293b;
+}
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --text: #ffffff;
-      --card: #1e293b;
-    }
+body.light {
+  --bg: #f4f4f4;
+  --text: #111111;
+  --card: #ffffff;
+}
 
-    body.light {
-      --bg: #f4f4f4;
-      --text: #111111;
-      --card: #ffffff;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: Arial, sans-serif;
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.4s ease;
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      transition: 0.4s ease;
-    }
+nav {
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background: var(--bg);
+  z-index: 1000;
+}
 
-    nav {
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      background: var(--bg);
-      z-index: 1000;
-    }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 20px;
+}
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 20px;
-    }
+#themeToggle {
+  padding: 8px 15px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    section {
-      padding: 120px 10%;
-      min-height: 100vh;
-    }
+section {
+  padding: 120px 10%;
+  min-height: 100vh;
+}
 
-    .card {
-      background: var(--card);
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
+.card {
+  background: var(--card);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+.card:hover {
+  transform: translateY(-5px);
+}
 
-    button {
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
-    #themeToggle {
-      background: crimson;
-      color: white;
-    }
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
 
-    /* Loader */
-    #loader {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: var(--bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 5px solid #ccc;
-      border-top: 5px solid crimson;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-    }
-  </style>
+footer {
+  text-align: center;
+  padding: 20px;
+}
+</style>
 </head>
-<body>
 
-<div id="loader">
-  <div class="spinner"></div>
-</div>
+<body>
 
 <canvas id="particles"></canvas>
 
@@ -154,13 +126,13 @@
 <section id="projects">
   <h1>My Projects</h1>
 
-  <div class="card" data-aos="fade-up">
+  <div class="card">
     <h3>Terminal Calculator</h3>
     <p>Python CLI calculator that shows working and results.</p>
     <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">View on GitHub</a>
   </div>
 
-  <div class="card" data-aos="fade-up">
+  <div class="card">
     <h3>Django AFIT Project</h3>
     <p>Post-UTME practice system built with Django.</p>
     <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">View on GitHub</a>
@@ -171,32 +143,26 @@
 <section id="contact">
   <h1>Contact Me</h1>
 
+  <!-- NETLIFY FORM CONNECTED -->
   <form name="contact" method="POST" data-netlify="true">
     <input type="hidden" name="form-name" value="contact">
+
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Message"></textarea>
-    <button type="submit">Send</button>
-  </form>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
 <footer>
   © 2026 Chukwuma Divine
 </footer>
 
-<!-- AOS Script -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init();
-
-/* Loader */
-window.addEventListener("load", () => {
-  document.getElementById("loader").style.display = "none";
-});
-
 /* Theme Toggle + Local Storage */
 const toggle = document.getElementById("themeToggle");
+
 if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light");
 }
@@ -210,10 +176,7 @@ toggle.onclick = () => {
 
 /* Typing Effect */
 const words = ["Software Developer", "Python Programmer", "AI Enthusiast"];
-let i = 0;
-let j = 0;
-let current = "";
-let isDeleting = false;
+let i = 0, j = 0, current = "", isDeleting = false;
 
 function type() {
   current = words[i];
@@ -231,7 +194,7 @@ function type() {
 }
 type();
 
-/* Particles (works in light & dark) */
+/* PARTICLES (Works in BOTH light & dark) */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -239,6 +202,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
+
 for (let i = 0; i < 100; i++) {
   particles.push({
     x: Math.random() * canvas.width,
@@ -273,5 +237,6 @@ function animate() {
 animate();
 
 </script>
+
 </body>
 </html>
