@@ -191,11 +191,15 @@
 
 <section id="contact" class="fade-element">
   <h2>Contact Me</h2>
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea rows="5" placeholder="Message" required></textarea>
-    <button type="submit">Send Message</button>
+  <form name="contact" method="POST" data-netlify="true">
+  <!-- Required hidden input for Netlify -->
+   <input type="hidden" name="form-name" value="contact">
+
+   <input type="text" name="name" placeholder="Your Name" required>
+   <input type="email" name="email" placeholder="Your Email" required>
+   <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+   <button type="submit">Send Message</button>
   </form>
   <div class="social-links">
     <a href="https://instagram.com/YOURUSERNAME" target="_blank">Instagram</a>
