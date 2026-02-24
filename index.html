@@ -3,93 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divine | Portfolio</title>
-<link rel="stylesheet" href="style.css">
+<title>Divine | Creative Developer</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
+  body { transition:0.4s; background:#0f172a; color:#f1f5f9; overflow-x:hidden; }
+  body.light { background:#f5f5f5; color:#111; }
+
+  .gradient-bg { position:fixed; top:0; left:0; width:200%; height:200%;
+    background:linear-gradient(45deg,#6366f1,#8b5cf6,#06b6d4,#3b82f6);
+    background-size:400% 400%; animation:gradientMove 15s ease infinite;
+    z-index:-1; opacity:0.15; }
+  @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+  nav { display:flex; justify-content:space-between; align-items:center; padding:20px; }
+  nav h1 { color:#38bdf8; font-size:28px; }
+  nav button { padding:8px 15px; border:none; border-radius:5px; cursor:pointer; background:#38bdf8; color:black; }
+  nav button:hover { background:white; }
+
+  header { text-align:center; padding:60px 20px; opacity:0; transform:translateY(50px); transition:1s ease; }
+  header h2 { font-size:28px; margin-bottom:15px; }
+  .typing { color:#facc15; font-weight:bold; font-size:20px; min-height:24px; }
+
+  .buttons { margin-top:20px; }
+  .buttons a { text-decoration:none; padding:10px 20px; margin:0 5px; border-radius:5px; font-weight:bold; }
+  .primary { background:#38bdf8; color:black; }
+  .secondary { background:#fbbf24; color:black; }
+  .primary:hover, .secondary:hover { opacity:0.85; }
+
+  section { padding:60px 20px; max-width:1000px; margin:auto; opacity:0; transform:translateY(50px); transition:1s ease; }
+  section h2 { text-align:center; color:#38bdf8; margin-bottom:40px; }
+
+  .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+  .project-card { background:rgba(255,255,255,0.08); padding:20px; border-radius:15px; backdrop-filter:blur(10px); transition:0.5s; opacity:0; transform:translateY(30px); }
+  .project-card:hover { transform:translateY(-5px); background:rgba(255,255,255,0.12); }
+  .project-card h3 { margin-bottom:10px; color:#fbbf24; }
+  .project-card p { font-size:14px; margin-bottom:10px; }
+  .project-card button { padding:6px 12px; border:none; border-radius:5px; cursor:pointer; background:#38bdf8; color:black; }
+  .project-card button:hover { background:white; }
+  .hidden { display:none; margin-top:10px; font-size:14px; color:#cbd5e1; }
+
+  footer { text-align:center; padding:20px; background:#111827; margin-top:40px; font-size:14px; opacity:0; transform:translateY(30px); transition:1s ease; }
+
+  @media(max-width:600px){ header h2 { font-size:22px; } nav h1 { font-size:22px; } }
+
+  /* Fade-in active class */
+  .fade-in { opacity:1 !important; transform:translateY(0) !important; }
+</style>
 </head>
 <body>
-
-<div id="particles-js"></div>
+<div class="gradient-bg"></div>
 
 <nav>
-    <h1>Divine</h1>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+  <h1>Divine</h1>
+  <button id="themeToggle">Light</button>
 </nav>
 
-<header>
-    <h2>Hello, I'm Divine 👋</h2>
-    <p><span id="typing"></span></p>
-    <a href="Chukwma_Divine_MC_CV.pdf" download class="btn">Download CV</a>
+<header class="fade-element">
+  <h2>Building Intelligent Systems for the Future.</h2>
+  <p class="typing" id="typing"></p>
+  <div class="buttons">
+    <a href="#projects" class="primary">View Projects</a>
+    <a href="Divine_CV.pdf" download class="secondary">Download CV</a>
+  </div>
 </header>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        Passionate about building software, AI systems, and modern web applications.
-        Focused on Python, Django, and intelligent technologies.
-    </p>
+<section id="projects" class="fade-element">
+  <h2>My Projects</h2>
+  <div class="projects">
+    <div class="project-card fade-element">
+      <h3>Afit Lost and Found</h3>
+      <p>A platform for students to report and recover lost items easily.</p>
+      <button onclick="toggleDetails('afit')">View Details</button>
+      <div id="afit" class="hidden">
+        Secure posting, searching, and connecting for lost/found items in campus.
+      </div>
+    </div>
+
+    <div class="project-card fade-element">
+      <h3>Terminal Calculator</h3>
+      <p>A Python-based command line calculator.</p>
+      <button onclick="toggleDetails('calculator')">View Details</button>
+      <div id="calculator" class="hidden">
+        Accepts user inputs, performs operations, and displays both working and final results.
+      </div>
+    </div>
+
+    <div class="project-card fade-element">
+      <h3>Football Project</h3>
+      <p>A football game inspired by FIFA-style gameplay.</p>
+      <button onclick="toggleDetails('football')">View Details</button>
+      <div id="football" class="hidden">
+        Includes player controls, scoring system, and match simulation features.
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="skills">
-    <h2>My Skills</h2>
-
-    <div class="skill">
-        <p>Python</p>
-        <div class="progress"><div class="progress-bar" data-width="90%"></div></div>
-    </div>
-
-    <div class="skill">
-        <p>Django</p>
-        <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-    </div>
-
-    <div class="skill">
-        <p>HTML & CSS</p>
-        <div class="progress"><div class="progress-bar" data-width="80%"></div></div>
-    </div>
-
-    <div class="skill">
-        <p>JavaScript</p>
-        <div class="progress"><div class="progress-bar" data-width="70%"></div></div>
-    </div>
-
+<section id="contact" class="fade-element">
+  <h2>Contact</h2>
+  <p>Email: divinemc13@gmail.com</p>
+  <p>Location: Kaduna, Nigeria</p>
 </section>
 
-<section id="projects">
-    <h2>Projects</h2>
+<footer class="fade-element">© 2026 Divine. All Rights Reserved.</footer>
 
-    <div class="project-card">
-        <h3>Terminal Calculator</h3>
-        <p>Python calculator that shows full working and final results.</p>
-    </div>
+<script>
+  // Dark/Light toggle
+  const themeBtn = document.getElementById('themeToggle');
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    themeBtn.textContent = document.body.classList.contains('light') ? 'Dark' : 'Light';
+  });
 
-    <div class="project-card">
-        <h3>Django AFIT App</h3>
-        <p>Football-style management system built with Django.</p>
-    </div>
+  // Project details toggle
+  function toggleDetails(id){ document.getElementById(id).classList.toggle('hidden'); }
 
-</section>
+  // Typing animation
+  const roles = ["Software Developer","AI Enthusiast","Django Specialist","Problem Solver"];
+  const typingEl = document.getElementById("typing");
+  let i=0,j=0,deleting=false;
+  function typeLoop(){
+    let current = roles[i];
+    if(!deleting){ typingEl.textContent=current.substring(0,j++); if(j>current.length){ deleting=true; setTimeout(typeLoop,1000); return; } }
+    else{ typingEl.textContent=current.substring(0,j--); if(j==0){ deleting=false; i=(i+1)%roles.length; } }
+    setTimeout(typeLoop,deleting?50:100);
+  }
+  typeLoop();
 
-<section id="contact">
-    <h2>Contact Me</h2>
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-element, .project-card');
+  const appearOptions = { threshold: 0.2 };
 
-    <form action="https://formspree.io/f/yourformid" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-    </form>
-</section>
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('fade-in'); observer.unobserve(entry.target); }
+    });
+  }, appearOptions);
 
-<footer>
-    <p>© 2026 Divine — Built with ambition.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script src="script.js"></script>
+  faders.forEach(el => appearOnScroll.observe(el));
+</script>
 </body>
 </html>
