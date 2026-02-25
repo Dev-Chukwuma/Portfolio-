@@ -420,6 +420,13 @@ body.light .skill-icon {
     requestAnimationFrame(animateMarquee);
   }
   animateMarquee();
+  const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
 </script>
 </body>
 </html>
