@@ -27,6 +27,15 @@
   align-items: center;
   gap: 15px; /* space between button and hamburger */
 }
+  .nav-links{
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: translateX(100%);
+  opacity: 0;
+}
+.nav-links.active{
+  transform: translateX(0);
+  opacity: 1;
+}
 
 /* Style mobile nav links */
 .nav-links li a {
