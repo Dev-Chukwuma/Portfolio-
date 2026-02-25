@@ -4,107 +4,189 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine | Software & AI Engineer</title>
+
 <style>
-  /* General */
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Arial',sans-serif;}
-  html{scroll-behavior:smooth;} /* Smooth scrolling */
-  body{transition:0.4s;background:#0f172a;color:#f1f5f9;overflow-x:hidden;}
-  body.light{background:#f5f5f5;color:#111;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Arial',sans-serif;}
+html{scroll-behavior:smooth;}
+body{transition:0.4s;background:#0f172a;color:#f1f5f9;overflow-x:hidden;}
+body.light{background:#f5f5f5;color:#111;}
 
-  /* Backgrounds */
-  canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;}
-  .marquee-bg{position:fixed;top:50%;left:0;width:200%;font-size:20px;color:rgba(255,255,255,0.05);white-space:nowrap;overflow:hidden;transform:translateY(-50%);z-index:-1;}
+canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;}
+.marquee-bg{position:fixed;top:50%;left:0;width:200%;font-size:20px;color:rgba(255,255,255,0.05);white-space:nowrap;overflow:hidden;transform:translateY(-50%);z-index:-1;}
 
-  /* Navbar */
-  nav{display:flex;justify-content:space-between;align-items:center;padding:20px;position:relative;z-index:2;}
-  nav h1{color:#38bdf8;font-size:28px;}
-  nav button{padding:8px 15px;border:none;border-radius:5px;cursor:pointer;background:#38bdf8;color:black;}
-  nav button:hover{background:white;}
-
-  /* Hero */
-  header{text-align:center;padding:60px 20px;opacity:0;transform:translateY(50px);transition:1s ease;position:relative;z-index:1;}
-  header h2{font-size:28px;margin-bottom:15px;}
-  .typing{color:#facc15;font-weight:bold;font-size:20px;min-height:24px;}
-  .buttons{margin-top:20px;}
-  .buttons a{text-decoration:none;padding:10px 20px;margin:0 5px;border-radius:5px;font-weight:bold;}
-  .primary{background:#38bdf8;color:black;}
-  .secondary{background:#fbbf24;color:black;}
-  .primary:hover,.secondary:hover{opacity:0.85;}
-
-  /* Sections */
-  section{padding:60px 20px;max-width:1000px;margin:auto;opacity:0;transform:translateY(50px);transition:1s ease;position:relative;z-index:1;}
-  section h2{text-align:center;color:#38bdf8;margin-bottom:40px;}
-
-  /* About */
-  #about p{font-size:16px;line-height:1.6;color:inherit;}
-
-  /* Skills */
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-  .skill-card{background:rgba(255,255,255,0.08);padding:20px;border-radius:15px;backdrop-filter:blur(10px);transition:0.3s;color:#f1f5f9;}
-  .skill-card:hover{transform:translateY(-5px);background:rgba(255,255,255,0.12);}
-  .skill-card h3{margin-bottom:10px;color:#fbbf24;}
-  .skill-card ul{list-style:none;}
-  .skill-card ul li{margin-bottom:10px;}
-  .progress-container{background:rgba(255,255,255,0.1);border-radius:10px;width:100%;height:10px;}
-  .progress-bar{height:10px;background:#38bdf8;border-radius:10px;width:0%;transition:1s;}
-
-  /* Projects */
-  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-  .project-card{background:rgba(255,255,255,0.08);padding:20px;border-radius:15px;backdrop-filter:blur(10px);transition:0.5s;opacity:0;transform:translateY(30px);color:#f1f5f9;}
-  .project-card:hover{transform:translateY(-5px);background:rgba(255,255,255,0.12);}
-  .project-card h3{margin-bottom:10px;color:#fbbf24;}
-  .project-card p{font-size:14px;margin-bottom:10px;}
-  .project-card a{display:inline-block;padding:6px 12px;border-radius:5px;background:#38bdf8;color:black;text-decoration:none;}
-  .project-card a:hover{background:white;}
-
-  /* Contact */
-  #contact form{display:flex;flex-direction:column;gap:15px;max-width:500px;margin:auto;}
-  #contact input,#contact textarea{padding:10px;border-radius:5px;border:none;}
-  #contact button{padding:10px 15px;border-radius:5px;border:none;background:#38bdf8;color:black;cursor:pointer;}
-  #contact button:hover{background:white;}
-
-  footer{text-align:center;padding:20px;background:#111827;margin-top:40px;font-size:14px;opacity:0;transform:translateY(30px);transition:1s ease;color:#f1f5f9;}
-  .social-links{display:flex;justify-content:center;gap:15px;margin-top:10px;}
-  .social-links a{color:#38bdf8;text-decoration:none;font-weight:bold;}
-
-  /* Responsive */
-  @media(max-width:600px){header h2{font-size:22px;} nav h1{font-size:22px;}}
-
-  /* Fade-in */
-  .fade-in{opacity:1 !important;transform:translateY(0) !important;}
-
-  /* Light mode cards and form fixes */
-  body.light .skill-card,
-  body.light .project-card {
-    background: rgba(0,0,0,0.05);
-    color: #111;
-    backdrop-filter: blur(5px);
-  }
-  body.light #contact form input,
-  body.light #contact form textarea {
-    background: #fff;
-    color: #111;
-  }
-  body.light footer {
-    background: #e5e7eb;
-    color: #111;
-  }
-  body.light .marquee-bg {
-    color: rgba(0,0,0,0.05);
-  }
-  .skill-icon {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  margin-right: 8px;
-  filter: invert(90%); /* makes it visible on dark mode */
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  position:relative;
+  z-index:2;
 }
 
-body.light .skill-icon {
-  filter: invert(10%); /* adjusts color for light mode */
+nav h1{color:#38bdf8;font-size:28px;}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:inherit;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.nav-links li a:hover{
+  color:#38bdf8;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+nav button{
+  padding:8px 15px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  background:#38bdf8;
+  color:black;
+}
+
+nav button:hover{background:white;}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:#38bdf8;
+  transition:0.4s;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+@media(max-width:768px){
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#0f172a;
+    width:100%;
+    flex-direction:column;
+    align-items:center;
+    padding:20px 0;
+    display:none;
+  }
+
+  body.light .nav-links{
+    background:#f5f5f5;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+}
+
+/* Hero */
+header{text-align:center;padding:60px 20px;opacity:0;transform:translateY(50px);transition:1s ease;position:relative;z-index:1;}
+header h2{font-size:28px;margin-bottom:15px;}
+.typing{color:#facc15;font-weight:bold;font-size:20px;min-height:24px;}
+.buttons{margin-top:20px;}
+.buttons a{text-decoration:none;padding:10px 20px;margin:0 5px;border-radius:5px;font-weight:bold;}
+.primary{background:#38bdf8;color:black;}
+.secondary{background:#fbbf24;color:black;}
+.primary:hover,.secondary:hover{opacity:0.85;}
+
+section{padding:60px 20px;max-width:1000px;margin:auto;opacity:0;transform:translateY(50px);transition:1s ease;position:relative;z-index:1;}
+section h2{text-align:center;color:#38bdf8;margin-bottom:40px;}
+
+.skills,.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.skill-card,.project-card{
+  background:rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+  color:#f1f5f9;
+}
+
+.skill-card:hover,.project-card:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,0.12);
+}
+
+.skill-card h3,.project-card h3{
+  margin-bottom:10px;
+  color:#fbbf24;
+}
+
+.project-card a{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:5px;
+  background:#38bdf8;
+  color:black;
+  text-decoration:none;
+}
+
+.project-card a:hover{background:white;}
+
+.progress-container{background:rgba(255,255,255,0.1);border-radius:10px;width:100%;height:10px;}
+.progress-bar{height:10px;background:#38bdf8;border-radius:10px;width:0%;transition:1s;}
+
+.skill-icon{
+  width:24px;
+  height:24px;
+  vertical-align:middle;
+  margin-right:8px;
+  filter:invert(90%);
+}
+
+body.light .skill-icon{filter:invert(10%);}
+
+.fade-in{opacity:1 !important;transform:translateY(0) !important;}
+
+footer{text-align:center;padding:20px;background:#111827;margin-top:40px;font-size:14px;opacity:0;transform:translateY(30px);transition:1s ease;color:#f1f5f9;}
+
+body.light footer{
+  background:#e5e7eb;
+  color:#111;
 }
 </style>
 </head>
+
 <body>
 
 <canvas id="particles"></canvas>
@@ -112,259 +194,42 @@ body.light .skill-icon {
 
 <nav>
   <h1>Divine</h1>
-  <button id="themeToggle">Light</button>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button id="themeToggle">Light</button>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 </nav>
 
-<header class="fade-element">
-  <h2>Building Scalable Systems for the Future.</h2>
-  <p class="typing" id="typing"></p>
-  <div class="buttons">
-    <a href="Divine_CV.pdf" download class="primary">Download CV</a>
-    <a href="#projects" class="secondary">View Projects</a>
-  </div>
-</header>
 
-<section id="about" class="fade-element">
-  <h2>About Me</h2>
-  <p>Hello! I’m Divine, a Software & AI Engineer focused on building scalable, intelligent systems. I specialize in full-stack development, backend frameworks, and AI-powered solutions. I strive for clean, efficient, and professional code in every project I deliver.</p>
-</section>
-
-<section id="skills" class="fade-element">
-  <h2>Skills</h2>
-  <div class="skills">
-
-    <div class="skill-card">
-      <h3>Front-End Development</h3>
-      <ul>
-        <li>
-          <img src="html5.svg" alt="HTML" class="skill-icon"> HTML
-          <div class="progress-container"><div class="progress-bar" data-progress="90%"></div></div>
-        </li>
-        <li>
-          <img src="tailwindcss.svg" alt="CSS" class="skill-icon"> CSS
-          <div class="progress-container"><div class="progress-bar" data-progress="85%"></div></div>
-        </li>
-        <li>
-          <img src="javascript.svg" alt="JavaScript" class="skill-icon"> JavaScript
-          <div class="progress-container"><div class="progress-bar" data-progress="80%"></div></div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Back-End Development</h3>
-      <ul>
-        <li>
-          <img src="django.svg" alt="Django" class="skill-icon"> Django
-          <div class="progress-container"><div class="progress-bar" data-progress="85%"></div></div>
-        </li>
-        <li>
-          <img src="python.svg" alt="Python" class="skill-icon"> Python
-          <div class="progress-container"><div class="progress-bar" data-progress="90%"></div></div>
-        </li>
-        <li>
-          <img src="fastapi.svg" alt="REST APIs" class="skill-icon"> REST APIs
-          <div class="progress-container"><div class="progress-bar" data-progress="80%"></div></div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3>Other Languages / Tools</h3>
-      <ul>
-        <li>
-          <img src="javascript.svg" alt="Java" class="skill-icon"> Java
-          <div class="progress-container"><div class="progress-bar" data-progress="70%"></div></div>
-        </li>
-        <li>
-          <img src="c.svg" alt="C" class="skill-icon"> C#
-          <div class="progress-container"><div class="progress-bar" data-progress="60%"></div></div>
-        </li>
-        <li>
-          <img src="mysql.svg" alt="SQL" class="skill-icon"> SQL
-          <div class="progress-container"><div class="progress-bar" data-progress="75%"></div></div>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<section id="projects" class="fade-element">
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="project-card fade-element">
-      <h3>Afit Lost and Found</h3>
-      <p>Platform to report and recover lost items in campus.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project-card fade-element">
-      <h3>Terminal Calculator</h3>
-      <p>Command-line calculator that shows working and answer.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project-card fade-element">
-      <h3>Football Project</h3>
-      <p>FIFA-style football game with match simulation.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project-card fade-element">
-      <h3>Portfolio Website</h3>
-      <p>Personal portfolio site to showcase projects and skills.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project-card fade-element">
-      <h3>AI Chatbot</h3>
-      <p>Intelligent chatbot with NLP capabilities for real-time interaction.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project-card fade-element">
-      <h3>Task Manager App</h3>
-      <p>Web application to track daily tasks and deadlines efficiently.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project-card fade-element">
-      <h3>Blog Platform</h3>
-      <p>Content management system for blogging with user authentication.</p>
-      <a href="#">View Project</a>
-    </div>
-  </div>
-</section>
-
-  <section id="services" class="fade-element">
-  <h2>Services</h2>
-  <div class="services" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
-    
-    <div class="skill-card">
-      <h3>Web Development</h3>
-      <p>Building responsive, modern, and scalable web applications using Django, React, and modern web technologies.</p>
-    </div>
-
-    <div class="skill-card">
-      <h3>AI & Machine Learning</h3>
-      <p>Developing AI-powered systems and predictive models for automation, insights, and intelligent decision-making.</p>
-    </div>
-
-    <div class="skill-card">
-      <h3>Backend & API</h3>
-      <p>Designing RESTful APIs, backend architectures, and databases for high-performance and secure applications.</p>
-    </div>
-
-    <div class="skill-card">
-      <h3>Consulting & Support</h3>
-      <p>Providing technical guidance, code reviews, and support to help projects succeed efficiently.</p>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="fade-element">
-  <h2>Contact Me</h2>
-  <form name="contact" method="POST" data-netlify="true" action="/success.html">
-  <!-- Required hidden input for Netlify -->
-   <input type="hidden" name="form-name" value="contact">
-
-   <input type="text" name="name" placeholder="Your Name" required>
-   <input type="email" name="email" placeholder="Your Email" required>
-   <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-
-   <button type="submit">Send Message</button>
-  </form>
-  <div class="social-links">
-    <a href="https://instagram.com/YOURUSERNAME" target="_blank">Instagram</a>
-    <a href="https://x.com/YOURUSERNAME" target="_blank">X</a>
-  </div>
-</section>
-
-  
-
-<footer class="fade-element">© 2026 Divine. All Rights Reserved.</footer>
 
 <script>
-  // Dark/Light toggle
-  const themeBtn=document.getElementById('themeToggle');
-  themeBtn.addEventListener('click',()=>{
-    document.body.classList.toggle('light');
-    themeBtn.textContent=document.body.classList.contains('light')?'Dark':'Light';
-  });
+const themeBtn=document.getElementById('themeToggle');
+themeBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('light');
+  themeBtn.textContent=document.body.classList.contains('light')?'Dark':'Light';
+});
 
-  // Typing animation
-  const roles=["Software Engineer","AI Engineer","Backend Specialist"];
-  const typingEl=document.getElementById("typing");
-  let i=0,j=0,deleting=false;
-  function typeLoop(){
-    let current=roles[i];
-    if(!deleting){
-      typingEl.textContent=current.substring(0,j++);
-      if(j>current.length){deleting=true;setTimeout(typeLoop,1000);return;}
-    }else{
-      typingEl.textContent=current.substring(0,j--);
-      if(j==0){deleting=false;i=(i+1)%roles.length;}
-    }
-    setTimeout(typeLoop,deleting?50:100);
-  }
-  typeLoop();
+const hamburger=document.getElementById("hamburger");
+const navLinks=document.querySelector(".nav-links");
 
-  // Particle background
-  const canvas=document.getElementById("particles");
-  const ctx=canvas.getContext("2d");
-  let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;
-  let particles=[];
-  for(let k=0;k<100;k++){particles.push({x:Math.random()*w,y:Math.random()*h,radius:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5});}
-
-  function getParticleColor(){return document.body.classList.contains('light')?'rgba(50,50,50,0.2)':'rgba(200,200,255,0.2)';}
-
-  function animateParticles(){
-    ctx.clearRect(0,0,w,h);
-    for(let p of particles){
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
-      ctx.fillStyle=getParticleColor();
-      ctx.fill();
-      p.x+=p.dx;p.y+=p.dy;
-      if(p.x<0||p.x>w)p.dx*=-1;
-      if(p.y<0||p.y>h)p.dy*=-1;
-    }
-    requestAnimationFrame(animateParticles);
-  }
-  animateParticles();
-  window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});
-
-  // Fade-in on scroll
-  const faders=document.querySelectorAll('.fade-element,.project-card,.skill-card');
-  const appearOptions={threshold:0.2};
-  const appearOnScroll=new IntersectionObserver((entries,observer)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('fade-in');
-        observer.unobserve(entry.target);
-      }
-    });
-  },appearOptions);
-  faders.forEach(el=>appearOnScroll.observe(el));
-
-  // Animate progress bars
-  const progressBars=document.querySelectorAll('.progress-bar');
-  const progressObserver=new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.style.width=entry.target.dataset.progress;
-        progressObserver.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.5});
-  progressBars.forEach(bar=>progressObserver.observe(bar));
-
-  // Marquee scrolling
-  const marquee=document.getElementById('marquee');
-  let marqueeX=0;
-  function animateMarquee(){
-    marqueeX-=0.5;
-    if(marqueeX<-marquee.offsetWidth/2) marqueeX=0;
-    marquee.style.transform=`translateX(${marqueeX}px) translateY(-50%)`;
-    requestAnimationFrame(animateMarquee);
-  }
-  animateMarquee();
+hamburger.addEventListener("click",()=>{
+  hamburger.classList.toggle("active");
+  navLinks.classList.toggle("active");
+});
 </script>
+
 </body>
 </html>
