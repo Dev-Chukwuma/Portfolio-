@@ -38,6 +38,45 @@
   /* About */
   #about p{font-size:16px;line-height:1.6;color:inherit;}
 
+   .hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:#38bdf8;
+  transition:0.4s;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+@media(max-width:768px){
+  .nav-links{
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#0f172a;
+    width:100%;
+    flex-direction:column;
+    align-items:center;
+    padding:20px 0;
+    display:none;
+  }
+  body.light .nav-links{background:#f5f5f5;}
+  .nav-links.active{display:flex;}
+  .hamburger{display:flex;}
+}
   /* Skills */
   .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
   .skill-card{background:rgba(255,255,255,0.08);padding:20px;border-radius:15px;backdrop-filter:blur(10px);transition:0.3s;color:#f1f5f9;}
